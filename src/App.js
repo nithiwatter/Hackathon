@@ -1,24 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { CssBaseline, ThemeProvider } from "@material-ui/core";
+import theme from "./theme";
+import Registration from "./views/Registration";
+import Login from "./views/Login";
+import CreateAccount from "./views/CreateAccount";
+import Done from "./views/Done";
+import Success from "./views/Success";
+import Final from "./views/Final";
+
+const display = (page, setPage) => {
+  switch (page) {
+    case 0:
+      return <Registration setPage={setPage} />;
+    case 1:
+      return <CreateAccount setPage={setPage} />;
+    case 2:
+      return <Done setPage={setPage} />;
+    case 3:
+      return <Login setPage={setPage} />;
+    case 4:
+      return <Success setPage={setPage} />;
+    case 5:
+      return <Final />;
+    default:
+      return <></>;
+  }
+};
 
 function App() {
+  const [page, setPage] = React.useState(3);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        {/* <Registration /> */}
+        {/* <Login /> */}
+        {/* <CreateAccount /> */}
+        {display(page, setPage)}
+      </ThemeProvider>
+    </>
   );
 }
 
