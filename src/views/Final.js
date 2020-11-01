@@ -1,13 +1,14 @@
-import React from "react";
 import {
-  makeStyles,
-  Typography,
   Button,
-  Select,
-  InputLabel,
   FormControl,
+  InputLabel,
   MenuItem,
+  Select,
+  Typography,
+  makeStyles,
 } from "@material-ui/core";
+
+import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,8 +30,9 @@ const useStyles = makeStyles((theme) => ({
 
 const categories = ["A", "B", "C"];
 
-export default function Final() {
+export default function Final(props) {
   const classes = useStyles();
+  const { setPage } = props;
   return (
     <div className={classes.root}>
       <div>
@@ -55,6 +57,7 @@ export default function Final() {
             variant="contained"
             color="primary"
             style={{ color: "white" }}
+            onClick={() => setPage(6)}
           >
             Submit
           </Button>

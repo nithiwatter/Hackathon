@@ -23,7 +23,7 @@ export default function Success() {
   return (
     <div className={classes.root}>
       <img src="./helpful.svg" className={classes.img} />
-      <TextField label="Registration Complete" />
+      <TextField label="Voted" />
     </div>
   );
 }
